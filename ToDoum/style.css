@@ -1,0 +1,248 @@
+/* Variable */
+:root {
+    --primary: #EA40A4;
+    --travail: #3A82EE;
+    --detente: var(--primary);
+    --grey: #888;
+    --light: #EEE;
+    --dark: #313154;
+    --danger: #ff5b57;
+
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    --travail-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+    --detente-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+
+/* Parametre de base */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Cache les bordure et fond des boutons concerné */
+input:not([type="radio"]):not([type="checkbox"]), button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+}
+
+/* Aligne toutes les sections */
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Personalisation des h3 */
+h3 {
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+/* Personalisation des h4 */
+h4 {
+    color: var(--grey);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* Alignement + position "Hola amigo, Nom Ici" */
+.coucou .titre {
+    display: flex;
+}
+
+.coucou .titre input {
+    margin-left: 0.5rem;
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+.coucou .titre,
+.coucou .titre input {
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Personalisation de la zone de texte "ex. Finir Jojo Bizard Adventre" */
+.cre-todoum input[type="text"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--dark);
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+/* Position des categorie */
+.cre-todoum .option {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Personalisation des categories */
+.cre-todoum .option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Personalisation des ronds a cocher */
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--travail);
+    box-shadow: var(--travail-glow);
+}
+
+.bubble.detente {
+    border-color: var(--detente);
+    box-shadow: var(--detente-glow);
+}
+
+.bubble::after{
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: var(--travail);
+    box-shadow: var(--travail-glow);
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.detente::after {
+    background-color: var(--detente);
+    box-shadow: var(--detente-glow);
+}
+
+input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+/* Personalisation text categorie */
+.cre-todoum .option label div {
+    color: var(--dark);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+/* Personalisation du bouton "ajouter toudoum" */
+.cre-todoum input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: #FFF;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: var(--travail-glow);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+/* Blanchie le bouton "ajouter toudoum" au passage de la souris */
+.cre-todoum input[type="submit"]:hover {
+    opacity: 0.75;
+}
+
+.toudoum-liste .list {
+    margin: 1rem 0;
+}
+
+/* Personalise bande des toudoum */
+.toudoum-liste .todoum-objet {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.todoum-objet label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+/* personalisation de la bande de Toudoum */
+.todoum-objet .todoum-content {
+    flex: 1 1 0%;
+}
+
+.todoum-objet .todoum-content input {
+    color: var(--dark);
+    font-size: 1.125rem;
+}
+
+.todoum-objet .action {
+    display: flex;
+    align-items: center;
+}
+
+.todoum-objet .action button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.2 ease-in-out;
+}
+
+.todoum-objet .action button:hover {
+    opacity: 0.7;
+}
+
+/* personalisation des boutons */
+.todoum-objet .action .modifier {
+    margin-right: 0.5rem;
+    background-color: var(--primary);
+}
+
+.todoum-objet .action .sup {
+    background-color: var(--danger);
+}
+
+.todoum-objet.fini .todoum-content input {
+    text-decoration: line-through;
+    color: var(--grey);
+}
