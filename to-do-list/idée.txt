@@ -1,8 +1,0 @@
-Big cool TO-DO list
-
-Bar de recherche
-
-Categorie : A faire | En cours | Fait
-
-option drag and drop --> essayer a la fin 
-filtre aussi a voir 
