@@ -93,6 +93,15 @@ function DisplayTodoums() {
             todoumObjet.classList.add('fini');
         }
 
+
+        // Néon sur les toudoums en fonction de la catégorie
+        if (todoum.category == 'detente') {
+            todoumObjet.classList.add('detente')
+        } else {
+            todoumObjet.classList.add('travail')
+        }
+
+
         input.addEventListener('click', (e) => {
             todoum.done = e.target.checked;
             localStorage.setItem('toudoums', JSON.stringify(todoums));

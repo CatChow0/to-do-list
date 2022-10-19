@@ -15,6 +15,9 @@
 
     --travail-glow: 0px 0px 10px rgba(58, 130, 238, 0.75);
     --detente-glow: 0px 0px 10px rgba(234, 64, 164, 0.75);
+
+    --toudoum-detente: 0px 0px 30px rgba(234, 64, 164, 0.85);
+    --toudoum-travail: 0px 0px 30px rgba(58, 130, 238, 0.85);
     --add-todoum: 0px 0px 40px rgba(0, 0, 0, 0.75);
 }
 
@@ -40,8 +43,7 @@
 }
 
 .area{
-    background: rgb(228, 228, 228);  
-    background: -webkit-linear-gradient(to left, #8f94fb, #4349af);  
+    background: rgb(228, 228, 228);   
     width: 100%;
     height:100vh;
     z-index: -1;
@@ -191,12 +193,96 @@ h1 {
 h1:hover {
     -webkit-animation-play-state: running;
     animation-play-state: running;
-  }
+}
 
 @keyframes stripeAnimation {
     100% {
       background-position: 200%;
     }
+}
+
+/* Animation boutton */
+button {
+    background: transparent;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+/* Animation button sup */
+.sup {
+    padding: 0;
+    border: none;
+    background: var(--danger);
+}
+
+.sup:hover {
+    color: var(--danger);
+    background: transparent;
+    box-shadow: none;
+}
+
+.sup:before,
+.sup:after{
+    content:'';
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: var(--danger);
+    transition:400ms ease all;
+}
+
+.sup:after {
+    right: inherit;
+    top: inherit;
+    left:0;
+    bottom:0;
+}
+
+.sup:hover:before,
+.sup:hover:after{
+    width: 100%;
+    transition: 800ms ease all;
+}
+
+/* Animation boutton modif */
+.modifier {
+    padding: 0;
+    border: none;
+    background: var(--grey);
+}
+
+.modifier:hover {
+    color: var(--grey);
+    background: transparent;
+    box-shadow: none;
+}
+
+.modifier:before,
+.modifier:after{
+    content:'';
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: var(--grey);
+    transition:400ms ease all;
+}
+
+.modifier:after {
+    right: inherit;
+    top: inherit;
+    left:0;
+    bottom:0;
+}
+
+.modifier:hover:before,
+.modifier:hover:after{
+    width: 100%;
+    transition: 800ms ease all;
 }
 
 /* Cache les bordure et fond des boutons concerné */
@@ -377,8 +463,8 @@ input:checked ~ .bubble::after {
     background-color: var(--dark);
     padding: 1rem;
     border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 1rem;
+    box-shadow: var(--add-todoum);
+    margin-bottom: 1.5rem;
 }
 
 .todoum-objet label {
@@ -388,6 +474,16 @@ input:checked ~ .bubble::after {
 }
 
 /* personalisation de la bande de Toudoum */
+
+.todoum-objet.detente {
+    box-shadow: var(--toudoum-detente);
+}
+
+.todoum-objet.travail {
+    box-shadow: var(--toudoum-travail);
+}
+
+
 .todoum-objet .todoum-content {
     flex: 1 1 0%;
 }
@@ -395,6 +491,7 @@ input:checked ~ .bubble::after {
 .todoum-objet .todoum-content input {
     color: var(--light);
     font-size: 1.125rem;
+    width: 50vw;
 }
 
 .todoum-objet .action {
@@ -418,11 +515,6 @@ input:checked ~ .bubble::after {
 /* personalisation des boutons */
 .todoum-objet .action .modifier {
     margin-right: 0.5rem;
-    background-color: var(--grey);
-}
-
-.todoum-objet .action .sup {
-    background-color: var(--danger);
 }
 
 .todoum-objet.fini .todoum-content input {
@@ -451,10 +543,9 @@ input:checked ~ .bubble::after {
 }
 
 
-
-
 @media screen and (max-width: 640px) {
     h1 {
         font-size: 13vw;
     }
 }
+
