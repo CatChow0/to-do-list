@@ -14,7 +14,92 @@
     </head>
 
     <body>
+        <!-- Animation wallpaper -->
+        <div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
 
+
+            
+            <header class="spikes">
+                    <h1>TODOUM LISTE</h1>
+            </header>
+
+            <main class="app">
+
+
+                <!-- Titre + nom -->
+                <section class="coucou">
+                    <h2 class="titre">
+                        Hola amigo, <input type="text" id="nom" placeholder="Nom Ici">
+                    </h2>
+                </section>
+
+
+                <section class="cre-todoum">
+                    <h3>CRÉE UN TOUDOUUM</h3>
+
+                    <form id="new-todoum-form">
+                        <h4>Des Toudouums?</h4>
+                        <input 
+                            type="text" 
+                            name="content" 
+                            id="content" 
+                            placeholder="ex. Finir JoJo Bizard Adventure" />
+
+                        <h4>Choisis la catégorie</h4>
+                        <div class="option">
+
+                            <!-- Categorie 1 -->
+                            <label>
+                                <input 
+                                    type="radio" 
+                                    name="category" 
+                                    id="category1"
+                                    value="travail" />
+                                <span class="bubble travail"></span>
+                                <div>TRAVAIL</div>
+                            </label>
+
+                            <!-- categorie 2 -->
+                            <label>
+                                <input 
+                                    type="radio" 
+                                    name="category" 
+                                    id="category2"
+                                    value="detente" />
+                                <span class="bubble detente"></span>
+                                <div>DETENTE</div>
+                            </label>
+
+                        </div>
+
+                        <!-- bouton ajouter -->
+                        <input type="submit" value="Ajouter Toudouum" />
+                    </form>
+                </section>
+
+                <section class="toudoum-liste">
+
+                    <h3>TOUDOUUM LISTE</h3>
+                    <div class="list" id="todoum-list">
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
         <main class="app">
 
 
@@ -79,6 +164,7 @@
             </section>
 
         </main>
+
         <script src="index.js"></script>
     </body>
 </html>
