@@ -46,7 +46,7 @@
     background: rgb(228, 228, 228);   
     width: 100%;
     height:100vh;
-    z-index: -1;
+    z-index: 0;
 }
 
 .circles{
@@ -246,20 +246,17 @@ button {
     width: 100%;
     transition: 800ms ease all;
 }
-
 /* Animation boutton modif */
 .modifier {
     padding: 0;
     border: none;
     background: var(--grey);
 }
-
 .modifier:hover {
     color: var(--grey);
     background: transparent;
     box-shadow: none;
 }
-
 .modifier:before,
 .modifier:after{
     content:'';
@@ -271,20 +268,17 @@ button {
     background: var(--grey);
     transition:400ms ease all;
 }
-
 .modifier:after {
     right: inherit;
     top: inherit;
     left:0;
     bottom:0;
 }
-
 .modifier:hover:before,
 .modifier:hover:after{
     width: 100%;
     transition: 800ms ease all;
 }
-
 /* Cache les bordure et fond des boutons concerné */
 input:not([type="radio"]):not([type="checkbox"]), button {
     appearance: none;
@@ -293,12 +287,10 @@ input:not([type="radio"]):not([type="checkbox"]), button {
     background: none;
     cursor: initial;
 }
-
 body {
     background: var(--light);
     color: var(--dark);
 }
-
 /* Aligne toutes les sections */
 section {
     margin-top: 2rem;
@@ -306,7 +298,6 @@ section {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
-
 /* Personalisation des h3 */
 h3 {
     color: var(--dark);
@@ -314,7 +305,6 @@ h3 {
     font-weight: 400;
     margin-bottom: 0.5rem;
 }
-
 /* Personalisation des h4 */
 h4 {
     color: var(--grey);
@@ -322,14 +312,10 @@ h4 {
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
-
 /* Alignement + position "Hola amigo, Nom Ici" */
 .coucou .titre {
     display: flex;
 }
-
-
-
 .coucou .titre input {
     margin-left: 0.5rem;
     flex: 1 1 0%;
@@ -337,14 +323,12 @@ h4 {
     position: relative;
     z-index: 10;
 }
-
 .coucou .titre,
 .coucou .titre input {
     color: var(--dark);
     font-size: 1.5rem;
     font-weight: 700;
 }
-
 /* Personalisation de la zone de texte "ex. Finir Jojo Bizard Adventre" */
 .cre-todoum input[type="text"] {
     display: block;
@@ -357,7 +341,6 @@ h4 {
     box-shadow: var(--add-todoum);
     margin-bottom: 1.5rem;
 }
-
 /* Position des categorie */
 .cre-todoum .option {
     display: grid;
@@ -365,7 +348,6 @@ h4 {
     grid-gap: 1rem;
     margin-bottom: 1.5rem;
 }
-
 /* Personalisation des categories */
 .cre-todoum .option label {
     display: flex;
@@ -378,13 +360,10 @@ h4 {
     box-shadow: var(--shadow);
     cursor: pointer;
 }
-
 input[type="radio"],
 input[type="checkbox"] {
     display: none;
 }
-
-
 /* Personalisation des ronds a cocher */
 .bubble {
     display: flex;
@@ -545,7 +524,35 @@ input:checked ~ .bubble::after {
 
 @media screen and (max-width: 640px) {
     h1 {
-        font-size: 13vw;
+        font-size: 11vw;
+    }
+
+    .action {
+        flex-direction: column;
+    }
+
+    .todoum-objet .action .modifier {
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
 }
 
+@media screen and (max-width: 350px) {
+
+    .action {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        margin-top: 6rem;
+        margin-left: 15vw;
+    }
+
+    .todoum-objet .action .modifier {
+        margin-right: 1rem;
+        margin-bottom: 0rem;
+    }
+
+    .toudoum-liste .todoum-objet {
+        margin-bottom: 4rem;
+    }
+}
